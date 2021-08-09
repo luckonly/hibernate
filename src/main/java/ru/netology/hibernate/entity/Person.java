@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(nullable = false, length = 50)
     private String name;
@@ -32,6 +32,6 @@ public class Person implements Serializable {
     private String phone_number;
 
     @Column(nullable = false, length = 40)
-    private String city_of_living;
+    private String city;
 
 }

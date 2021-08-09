@@ -1,26 +1,28 @@
 package ru.netology.hibernate.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.netology.hibernate.entity.Person;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class Dao {
 
-    @PersistenceContext
-    EntityManager entityManager;
+    @Autowired
+    PersonRepository personRepository;
 
-    public Dao(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public List<Person> getByCity(String city) {
+        return personRepository.getByCity(city);
     }
 
-    public List<String> getPersonsByCity(String city) {
-       Query query = entityManager.createQuery("SELECT person.name FROM Person person WHERE lower(person.city_of_living) = lower(:city)");
-       query.setParameter("city", city);
-       return query.getResultList();
+    public List<Person> getByAgeIsLessThan(int age) {
+        return personRepository.getByAgeIsLessThan(age);
+    }
+
+    public Optional<Person> getPersonsByNameAndSurname(String name, String surname) {
+        return personRepository.getByNameAndSurname(name, surname);
     }
 
 }
