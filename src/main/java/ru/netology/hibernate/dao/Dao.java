@@ -14,11 +14,11 @@ public class Dao {
     PersonRepository personRepository;
 
     public List<Person> getByCity(String city) {
-        return personRepository.getByCity(city);
+        return personRepository.getPersonByCity(city);
     }
 
     public List<Person> getByAgeIsLessThan(int age) {
-        return personRepository.getByAgeIsLessThan(age);
+        return personRepository.getPersonByAgeIsLessThan(age);
     }
 
     public Optional<Person> getPersonsByNameAndSurname(String name, String surname) {
