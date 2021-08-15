@@ -1,14 +1,15 @@
-package ru.netology.hibernate.dao;
+package ru.netology.hibernate.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import ru.netology.hibernate.dao.PersonRepository;
 import ru.netology.hibernate.entity.Person;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class Dao {
+public class PersonService {
 
     @Autowired
     PersonRepository personRepository;
